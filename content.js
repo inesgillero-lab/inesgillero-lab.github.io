@@ -2,6 +2,42 @@
 window.CONTENT = {
   "projects": [
     {
+      "id": "atlascoproprietes",
+      "title": "Atlas des copropriétés en difficulté",
+      "kicker": "Mémoire — Grigny 2 et huit autres grandes copropriétés",
+      "type": "Atlas cartographique (mémoire)",
+      "lieu": "France",
+      "annee": "2026",
+      "hidden": false,
+      "text": [
+        "Un atlas de travail des grandes copropriétés dégradées en France : pour chacune, un plan masse, une axonométrie, les acteurs (architectes, promoteur, syndic, bailleur, opérateur), les dispositifs publics et la chronologie, réunis sur une même carte.",
+        "Les axonométries sont redessinées à partir des données ouvertes de l’IGN (BD TOPO) : les bâtiments de chaque copropriété sont pochés en noir. Pour Grigny 2, terrain du mémoire, les immeubles voués à la démolition sont isolés à partir du diagnostic de l’ORCOD-IN."
+      ],
+      "details": [
+        {
+          "label": "Type",
+          "value": "Atlas cartographique"
+        },
+        {
+          "label": "Copropriétés",
+          "value": "Bas Clichy, Consolat, Grigny 2, La Maurelette, Le Mail, Les Rosiers et Super Belvédère, Parc de la Noue, Pissevin, Val Fourré"
+        },
+        {
+          "label": "Sources",
+          "value": "IGN (BD TOPO, cadastre, Plan IGN)\nRegistre national des copropriétés\nORCOD-IN"
+        }
+      ],
+      "link": {
+        "label": "Ouvrir l’atlas",
+        "url": "atlas-coproprietes.html"
+      },
+      "images": [
+        "atlascopro-axos.gif",
+        "atlascopro-2.jpg",
+        "atlascopro-3.jpg"
+      ]
+    },
+    {
       "id": "pellicule",
       "title": "Pellicule",
       "kicker": "",
@@ -492,6 +528,16 @@ window.CONTENT = {
     }
   ],
   "atlas": [
+    [
+      {
+        "image": "atlascopro-axos.gif",
+        "project": "atlascoproprietes",
+        "col": 656,
+        "width": 530,
+        "offset": 0,
+        "caption": ""
+      }
+    ],
     [
       {
         "image": "image02.jpg",
