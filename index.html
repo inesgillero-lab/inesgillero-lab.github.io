@@ -1,0 +1,293 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ines gille rodriguez</title>
+<meta name="description" content="portfolio — ines gille rodriguez, architecture">
+<meta property="og:title" content="ines gille rodriguez">
+<meta property="og:description" content="portfolio">
+<meta property="og:image" content="images/image02.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rethink+Sans:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  /* Système unique, basé sur une page de référence de 1280 px.
+     --u = 1 px de référence : il grandit avec l'écran au-delà de 1280 px,
+     pour que texte, marges et images gardent les mêmes proportions. */
+  :root {
+    --bg: #ffffff;
+    --ink: #000000;
+    --muted: #8a8a8a;
+    --line: #000000;
+    --hover: #F27E7E;
+    --u: clamp(1px, calc(100vw / 1280), 1.3px);
+    --zone: calc(1080 * var(--u));  /* largeur max de la zone d'images, centrée */
+
+    /* trois tailles de texte, partout */
+    --t-s: calc(12 * var(--u));     /* texte courant, légendes, fiches */
+    --t-m: calc(15 * var(--u));     /* sous-titres, intertitres */
+    --t-l: calc(42 * var(--u));     /* titres de projet */
+    --lh: 1.25;
+
+    /* espacements */
+    --side: calc(72 * var(--u));    /* marge gauche / droite, partout */
+    --top: calc(48 * var(--u));     /* espace sous l'en-tête, partout */
+    --block: calc(120 * var(--u));  /* espace entre grands blocs */
+    --row: calc(48 * var(--u));     /* espace entre rangées d'images */
+    --pad: calc(9 * var(--u));      /* hauteur des lignes à filet */
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: "Rethink Sans", system-ui, sans-serif;
+    font-size: var(--t-s);
+    line-height: var(--lh);
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: inherit; text-decoration: none; transition: color .15s; }
+  a:hover { color: var(--hover); }
+  img { display: block; width: 100%; height: auto; }
+
+  /* --- en-tête : nom à gauche, trois colonnes alignées à droite --- */
+  header {
+    position: sticky; top: 0; z-index: 10;
+    background: var(--bg);
+    display: grid;
+    grid-template-columns: 1fr repeat(3, calc(227 * var(--u)));
+    align-items: baseline;
+    padding: calc(27 * var(--u)) var(--side) calc(22 * var(--u));
+    font-size: calc(16.5 * var(--u)); font-weight: 700; line-height: 1.5;
+  }
+  header nav { display: contents; }
+  header nav a { text-align: right; }
+  header nav a[aria-current="page"] { text-decoration: underline; text-underline-offset: 0.25em; }
+
+  main { min-height: 70vh; }
+  .view { display: none; padding-top: var(--top); }
+  .view.active { display: block; animation: fade .35s ease; }
+  @keyframes fade { from { opacity: 0 } to { opacity: 1 } }
+
+  /* lignes à filet : même style pour l'index et les fiches techniques */
+  .ruled > * { padding: var(--pad) 0; }
+  .ruled > * + * { border-top: 1px solid var(--line); }
+
+  /* --- atlas : rangées décalées ---
+     --c : largeur de colonne, --w : largeur de l'image, --o : décalage vertical
+     (en px sur une zone de 1080, convertis en %) */
+  .atlas { max-width: calc(var(--zone) + 2 * var(--side)); margin: 0 auto; padding: 0 var(--side); }
+  .atlas .row { display: flex; align-items: flex-start; gap: calc(48 / 1080 * 100%); }
+  .atlas .row + .row { margin-top: var(--row); }
+  .tile { flex: none; width: calc(var(--c) / 1080 * 100%); margin-top: calc(var(--o, 0) / 1080 * 100%); }
+  .tile img { width: calc(var(--w) / var(--c) * 100%); background: #f3f3f3; }
+  .tile span { display: block; margin-top: calc(15 * var(--u)); }
+
+  /* --- index : mêmes filets que les fiches --- */
+  .index-wrap { padding: 0 var(--side); }
+  .index { width: 100%; border-collapse: collapse; }
+  .index tr { border-top: 1px solid var(--line); }
+  .index tr:last-child { border-bottom: 1px solid var(--line); }
+  .index td { padding: var(--pad) calc(16 * var(--u)) var(--pad) 0; vertical-align: top; }
+  .index td:first-child { width: 36%; }
+  .index td:nth-child(2) { width: 24%; }
+  .index td:last-child { text-align: right; padding-right: 0; white-space: nowrap; }
+  .index tr.link { cursor: pointer; }
+  .index tr.link:hover td { color: var(--hover); }
+
+  /* --- page projet --- */
+  .project h2 { padding: 0 var(--side); font-size: var(--t-l); font-weight: 600; line-height: 1.15; }
+  .project .sub { padding: calc(15 * var(--u)) var(--side) 0; font-size: var(--t-m); line-height: 1.5; }
+  .project .gallery {
+    display: grid; grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: calc(64 * var(--u)) calc(48 / 1080 * 100%); align-items: center;
+    max-width: calc(var(--zone) + 2 * var(--side)); margin: 0 auto;
+    padding: var(--block) var(--side) 0;
+  }
+  .project .gallery img:last-child:nth-child(odd) { grid-column: 1 / -1; width: calc(50% - 24 / 1080 * 100%); justify-self: center; }
+  /* texte : même largeur que la page info ; fiche à droite */
+  .project .cols {
+    display: grid; grid-template-columns: minmax(0, calc(550 * var(--u))) minmax(0, calc(300 * var(--u)));
+    gap: var(--top) calc(36 * var(--u)); align-items: start;
+    justify-content: space-between;  /* texte à gauche, fiche calée à droite */
+    max-width: calc(var(--zone) + 2 * var(--side)); margin: 0 auto;  /* aligné sur les images */
+    padding: var(--block) var(--side) 0;
+  }
+  .project .more { display: inline-block; margin-top: calc(15 * var(--u)); text-decoration: underline; text-underline-offset: 0.25em; }
+  .project .details > div { display: flex; justify-content: space-between; gap: calc(20 * var(--u)); }
+  .project .details > div:first-child { padding-top: 0; }
+  .project .details dt { flex: none; }
+  .project .details dd { text-align: right; white-space: pre-line; }
+  .back { display: block; max-width: calc(var(--zone) + 2 * var(--side)); margin: var(--top) auto 0; padding: 0 var(--side); color: var(--muted); }
+
+  /* --- info : même colonne de texte que les projets --- */
+  .info { max-width: calc(550 * var(--u) + 2 * var(--side)); padding: 0 var(--side); }
+  .info h3 { font-size: var(--t-m); font-weight: 400; margin: calc(30 * var(--u)) 0 calc(10 * var(--u)); }
+  .info ul { list-style: none; }
+  .info li { margin-bottom: calc(4 * var(--u)); }
+  .info li::before { content: "– "; }
+
+  /* --- pied de page : trois liens centrés --- */
+  footer {
+    margin-top: var(--block);
+    padding: var(--top) var(--side) calc(56 * var(--u));
+    display: flex; justify-content: center; gap: calc(160 * var(--u));
+    text-align: center;
+  }
+
+  /* --- mobile --- */
+  @media (max-width: 736px) {
+    :root { --side: 16px; --top: 24px; --block: 40px; --row: 32px; --t-l: 30px; }
+    header { grid-template-columns: 1fr auto auto auto; gap: 16px; padding: 20px var(--side) 16px; font-size: 15px; }
+    .atlas .row { flex-direction: column; gap: 0; }
+    .atlas .tile + .tile { margin-top: var(--row); }
+    .tile { width: 100%; margin-top: 0; }
+    .tile img { width: 100%; }
+    .project .gallery { grid-template-columns: 1fr; gap: 16px; }
+    .project .gallery img:last-child:nth-child(odd) { width: 100%; }
+    .project .cols { grid-template-columns: 1fr; }
+    .index, .index tbody, .index tr, .index td { display: block; width: auto !important; }
+    .index tr { padding: 12px 0; }
+    .index td { padding: 0; text-align: left !important; }
+    .index td:first-child { font-weight: 700; margin-bottom: 4px; }
+    .index td:not(:first-child) { color: var(--muted); display: inline; }
+    .index td:not(:first-child):not(:empty) ~ td:not(:empty)::before { content: " · "; }
+    footer { gap: 40px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <a href="#atlas" id="site-name"></a>
+  <nav>
+    <a href="#atlas">atlas</a>
+    <a href="#index">index</a>
+    <a href="#info">info</a>
+  </nav>
+</header>
+
+<main>
+  <section id="view-atlas" class="view"><div class="atlas" id="atlas-grid"></div></section>
+  <section id="view-index" class="view"><div class="index-wrap"><table class="index"><tbody id="index-list"></tbody></table></div></section>
+  <section id="view-info" class="view"><div class="info" id="info"></div></section>
+  <section id="view-project" class="view"><article class="project" id="project"></article></section>
+</main>
+
+<footer id="links"></footer>
+
+<!-- Tout le contenu (textes, images, atlas, info, liens) est dans content.js.
+     Pour le modifier, utilise le back office : double-clic sur « Back office.command ». -->
+<script src="content.js"></script>
+<script>
+const C = window.CONTENT;
+const PROJECTS = Object.fromEntries(C.projects.map(p => [p.id, p]));
+
+function img(name, alt) {
+  const el = document.createElement("img");
+  el.src = "images/" + name; el.alt = alt || ""; el.loading = "lazy";
+  return el;
+}
+function txt(tag, s, cls) { const e = document.createElement(tag); e.textContent = s || ""; if (cls) e.className = cls; return e; }
+
+document.getElementById("site-name").textContent = C.site.name;
+document.title = C.site.name;
+
+/* atlas */
+const grid = document.getElementById("atlas-grid");
+C.atlas.forEach(rowItems => {
+  const row = txt("div", "", "row");
+  rowItems.forEach(t => {
+    const p = PROJECTS[t.project];
+    const a = document.createElement("a");
+    a.className = "tile"; a.href = "#" + t.project;
+    a.style.cssText = `--c:${t.col};--w:${t.width};--o:${t.offset}`;
+    a.append(img(t.image, p ? p.title : ""), txt("span", t.caption || (p ? p.title : "")));
+    row.append(a);
+  });
+  grid.append(row);
+});
+
+/* index */
+const list = document.getElementById("index-list");
+C.projects.filter(p => !p.hidden).forEach(p => {
+  const tr = document.createElement("tr");
+  tr.className = "link";
+  tr.addEventListener("click", () => location.hash = p.id);
+  [p.title, p.type, p.lieu, p.annee].forEach(v => tr.append(txt("td", v)));
+  list.append(tr);
+});
+
+/* info */
+const info = document.getElementById("info");
+C.info.intro.forEach(s => { const pEl = txt("p", ""); s.split("\n").forEach((line, i) => { if (i) pEl.append(document.createElement("br")); pEl.append(line); }); info.append(pEl); });
+C.info.sections.forEach(sec => {
+  info.append(txt("h3", sec.title));
+  const ul = document.createElement("ul");
+  sec.items.forEach(it => ul.append(txt("li", it)));
+  info.append(ul);
+});
+
+/* liens du bas */
+const links = document.getElementById("links");
+C.links.forEach(l => {
+  const a = txt("a", l.label); a.href = l.url;
+  if (!l.url.startsWith("mailto:")) { a.target = "_blank"; a.rel = "noopener"; }
+  links.append(a);
+});
+
+/* page projet */
+function renderProject(id) {
+  const p = PROJECTS[id], el = document.getElementById("project");
+  el.innerHTML = "";
+  el.append(txt("h2", p.title));
+  // sous-titre : le kicker (une ligne par segment « — »), sinon type / lieu
+  const subLines = p.kicker ? p.kicker.split(" — ") : [p.type, p.lieu].filter(s => s && s !== "(...)");
+  const sub = txt("div", "", "sub");
+  subLines.forEach(s => sub.append(txt("div", s)));
+  el.append(sub);
+
+  if (p.images.length) {
+    const g = txt("div", "", "gallery");
+    p.images.forEach(f => g.append(img(f, p.title)));
+    el.append(g);
+  }
+
+  // fiche technique : celle du projet, sinon construite depuis type / lieu / année
+  const has = k => p.details.some(d => d.label === k);
+  const details = p.details.map(d => [d.label, d.value]);
+  if (p.lieu && p.lieu !== "(...)" && !has("Lieu") && !has("Évènement")) details.unshift(["Lieu", p.lieu]);
+  if (p.type && !has("Type")) details.splice(details.findIndex(([d]) => d === "Lieu") + 1, 0, ["Type", p.type]);
+  if (p.annee && !has("Date") && !has("Année")) details.push(["Année", p.annee]);
+
+  const cols = txt("div", "", "cols");
+  const t = txt("div", "", "text");
+  p.text.forEach(s => t.append(txt("p", s)));
+  if (p.link && p.link.url) { const l = txt("a", p.link.label || "Voir +", "more"); l.href = p.link.url; l.target = "_blank"; l.rel = "noopener"; t.append(l); }
+  cols.append(t);
+  if (details.length) {
+    const dl = document.createElement("dl"); dl.className = "details ruled";
+    details.forEach(([k, v]) => { const row = document.createElement("div"); row.append(txt("dt", k), txt("dd", v)); dl.append(row); });
+    cols.append(dl);
+  }
+  el.append(cols);
+  const b = txt("a", "← index", "back"); b.href = "#index"; el.append(b);
+}
+
+function route() {
+  const id = decodeURIComponent(location.hash.slice(1)) || "atlas";
+  document.querySelectorAll(".view").forEach(v => v.classList.remove("active"));
+  let navKey = id;
+  if (PROJECTS[id]) { renderProject(id); document.getElementById("view-project").classList.add("active"); navKey = ""; }
+  else (document.getElementById("view-" + id) || document.getElementById("view-atlas")).classList.add("active");
+  document.querySelectorAll("nav a").forEach(a => {
+    if (a.getAttribute("href") === "#" + navKey) a.setAttribute("aria-current", "page");
+    else a.removeAttribute("aria-current");
+  });
+  window.scrollTo(0, 0);
+}
+window.addEventListener("hashchange", route);
+route();
+</script>
+</body>
+</html>
