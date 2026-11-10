@@ -79,7 +79,10 @@
   .atlas { max-width: calc(var(--zone) + 2 * var(--side)); margin: 0 auto; padding: 0 var(--side); }
   .atlas .row { display: flex; align-items: flex-start; gap: calc(48 / 1080 * 100%); }
   .atlas .row + .row { margin-top: var(--row); }
-  .atlas .row:has(> .tile:only-child) { justify-content: center; } /* une seule image : centrée */
+  /* alignement de la rangée, choisi dans le back office */
+  .atlas .row.al-centre { justify-content: center; }
+  .atlas .row.al-droite { justify-content: flex-end; }
+  .atlas .row.al-reparti { justify-content: space-between; }
   .tile { flex: none; width: calc(var(--c) / 1080 * 100%); margin-top: calc(var(--o, 0) / 1080 * 100%); }
   .tile img { width: calc(var(--w) / var(--c) * 100%); background: #f3f3f3; }
   .tile span { display: block; margin-top: calc(15 * var(--u)); }
@@ -99,6 +102,7 @@
   /* --- page projet --- */
   .project h2 { padding: 0 var(--side); font-size: var(--t-l); font-weight: 600; line-height: 1.15; }
   .project .sub { padding: calc(15 * var(--u)) var(--side) 0; font-size: var(--t-m); line-height: 1.5; }
+  .project .sub a { text-decoration: underline; text-underline-offset: 0.2em; text-decoration-thickness: 1px; }
   .project .gallery {
     display: grid; grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: calc(64 * var(--u)) calc(48 / 1080 * 100%); align-items: center;
@@ -198,6 +202,8 @@ document.title = C.site.name;
 const grid = document.getElementById("atlas-grid");
 C.atlas.forEach(rowItems => {
   const row = txt("div", "", "row");
+  const align = (rowItems.find(t => t.align) || {}).align;
+  if (align && align !== "gauche") row.classList.add("al-" + align);
   rowItems.forEach(t => {
     const p = PROJECTS[t.project];
     const a = document.createElement("a");
@@ -242,10 +248,20 @@ function renderProject(id) {
   const p = PROJECTS[id], el = document.getElementById("project");
   el.innerHTML = "";
   el.append(txt("h2", p.title));
-  // sous-titre : le kicker (une ligne par segment « — »), sinon type / lieu
-  const subLines = p.kicker ? p.kicker.split(" — ") : [p.type, p.lieu].filter(s => s && s !== "(...)");
+  // sous-titre : une ligne par élément (avec lien facultatif), sinon le kicker, sinon type / lieu
+  const subLines = (p.subtitle && p.subtitle.some(l => l.text))
+    ? p.subtitle.filter(l => l.text)
+    : (p.kicker ? p.kicker.split(" — ") : [p.type, p.lieu].filter(s => s && s !== "(...)")).map(text => ({ text }));
   const sub = txt("div", "", "sub");
-  subLines.forEach(s => sub.append(txt("div", s)));
+  subLines.forEach(l => {
+    const line = txt("div", "");
+    if (l.url && !/^\s*javascript:/i.test(l.url)) {
+      const a = txt("a", l.text); a.href = l.url;
+      if (/^https?:/.test(l.url)) { a.target = "_blank"; a.rel = "noopener"; }
+      line.append(a);
+    } else line.textContent = l.text;
+    sub.append(line);
+  });
   el.append(sub);
 
   if (p.images.length) {

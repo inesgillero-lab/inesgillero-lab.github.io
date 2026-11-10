@@ -35,6 +35,16 @@ window.CONTENT = {
         "atlascopro-axos.gif",
         "atlascopro-2.jpg",
         "atlascopro-3.jpg"
+      ],
+      "subtitle": [
+        {
+          "text": "Mémoire",
+          "url": ""
+        },
+        {
+          "text": "Grigny 2 et huit autres grandes copropriétés",
+          "url": ""
+        }
       ]
     },
     {
@@ -164,7 +174,7 @@ window.CONTENT = {
     {
       "id": "championnes",
       "title": "Championnes by Disturb",
-      "kicker": "Montaud, vétuste mais en vie — Dysturb, Collectif Item",
+      "kicker": "Montaud, vétuste mais en vie — Dysturb — Collectif Item",
       "type": "Exposition photo",
       "lieu": "Lyon (69) / Saint-Étienne (42)",
       "annee": "2024",
@@ -198,6 +208,20 @@ window.CONTENT = {
       },
       "images": [
         "image05.jpg"
+      ],
+      "subtitle": [
+        {
+          "text": "Montaud, vétuste mais en vie",
+          "url": ""
+        },
+        {
+          "text": "Dysturb",
+          "url": "https://dysturb.org/championnes#appelacandidatures"
+        },
+        {
+          "text": "Collectif Item",
+          "url": "https://www.collectifitem.com"
+        }
       ]
     },
     {
@@ -535,7 +559,8 @@ window.CONTENT = {
         "col": 530,
         "width": 530,
         "offset": 0,
-        "caption": ""
+        "caption": "",
+        "align": "gauche"
       }
     ],
     [
