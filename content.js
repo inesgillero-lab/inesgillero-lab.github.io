@@ -532,7 +532,7 @@ window.CONTENT = {
       {
         "image": "atlascopro-axos.gif",
         "project": "atlascoproprietes",
-        "col": 656,
+        "col": 530,
         "width": 530,
         "offset": 0,
         "caption": ""

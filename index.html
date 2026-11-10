@@ -79,6 +79,7 @@
   .atlas { max-width: calc(var(--zone) + 2 * var(--side)); margin: 0 auto; padding: 0 var(--side); }
   .atlas .row { display: flex; align-items: flex-start; gap: calc(48 / 1080 * 100%); }
   .atlas .row + .row { margin-top: var(--row); }
+  .atlas .row:has(> .tile:only-child) { justify-content: center; } /* une seule image : centrée */
   .tile { flex: none; width: calc(var(--c) / 1080 * 100%); margin-top: calc(var(--o, 0) / 1080 * 100%); }
   .tile img { width: calc(var(--w) / var(--c) * 100%); background: #f3f3f3; }
   .tile span { display: block; margin-top: calc(15 * var(--u)); }
