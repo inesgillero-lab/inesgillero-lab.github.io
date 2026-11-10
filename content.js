@@ -522,17 +522,17 @@ window.CONTENT = {
       {
         "image": "image22.jpg",
         "project": "awof",
-        "col": 460,
-        "width": 429,
+        "col": 450,
+        "width": 430,
         "offset": 0,
         "caption": ""
       },
       {
         "image": "image15.jpg",
         "project": "lelogementcommedispositifpolitique",
-        "col": 570,
+        "col": 582,
         "width": 570,
-        "offset": 135,
+        "offset": 100,
         "caption": ""
       }
     ],
