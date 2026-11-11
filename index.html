@@ -13,6 +13,8 @@
 <link href="https://fonts.googleapis.com/css2?family=Rethink+Sans:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 <style>
   /* Système unique, basé sur une page de référence de 1280 px.
+     Les valeurs --s-… (tailles, espacements) et les couleurs viennent du back office
+     (page « Apparence », enregistrées dans content.js) ; les nombres ci-dessous sont les valeurs par défaut.
      --u = 1 px de référence : il grandit avec l'écran au-delà de 1280 px,
      pour que texte, marges et images gardent les mêmes proportions. */
   :root {
@@ -24,24 +26,31 @@
     --u: clamp(1px, calc(100vw / 1280), 1.3px);
     --zone: calc(1080 * var(--u));  /* largeur max de la zone d'images, centrée */
 
-    /* trois tailles de texte, partout */
-    --t-s: calc(12 * var(--u));     /* texte courant, légendes, fiches */
-    --t-m: calc(15 * var(--u));     /* sous-titres, intertitres */
-    --t-l: calc(42 * var(--u));     /* titres de projet */
+    /* quatre tailles de texte, partout */
+    --t-s: calc(var(--s-ts, 12) * var(--u));     /* texte courant, légendes, fiches */
+    --t-m: calc(var(--s-tm, 15) * var(--u));     /* lignes de sous-titre, liens, intertitres */
+    --t-ml: calc(var(--s-tml, 21) * var(--u));   /* sous-titre principal */
+    --t-l: calc(var(--s-tl, 42) * var(--u));     /* titres de projet */
+    --t-h: calc(var(--s-th, 16.5) * var(--u));   /* en-tête (nom + menu) */
     --lh: 1.25;
 
     /* espacements */
-    --side: calc(72 * var(--u));    /* marge gauche / droite, partout */
-    --top: calc(48 * var(--u));     /* espace sous l'en-tête, partout */
-    --block: calc(120 * var(--u));  /* espace entre grands blocs */
-    --row: calc(48 * var(--u));     /* espace entre rangées d'images */
+    --side: calc(var(--s-side, 72) * var(--u));    /* marge gauche / droite, partout */
+    --top: calc(var(--s-top, 48) * var(--u));      /* espace sous l'en-tête, partout */
+    --block: calc(var(--s-block, 120) * var(--u)); /* espace entre grands blocs */
+    --row: calc(var(--s-row, 48) * var(--u));      /* espace entre rangées d'images */
+    --ggap: calc(var(--s-ggap, 64) * var(--u));    /* espace vertical entre images d'un projet */
+    --textw: calc(var(--s-textw, 550) * var(--u)); /* largeur du texte (projets, info) */
+    --fichew: calc(var(--s-fichew, 300) * var(--u)); /* largeur de la fiche technique */
+    --font: "Rethink Sans";
+    --tw: 600;                                     /* graisse des titres */
     --pad: calc(9 * var(--u));      /* hauteur des lignes à filet */
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body {
     background: var(--bg);
     color: var(--ink);
-    font-family: "Rethink Sans", system-ui, sans-serif;
+    font-family: var(--font), system-ui, sans-serif;
     font-size: var(--t-s);
     line-height: var(--lh);
     -webkit-font-smoothing: antialiased;
@@ -58,7 +67,7 @@
     grid-template-columns: 1fr repeat(3, calc(227 * var(--u)));
     align-items: baseline;
     padding: calc(27 * var(--u)) var(--side) calc(22 * var(--u));
-    font-size: calc(16.5 * var(--u)); font-weight: 700; line-height: 1.5;
+    font-size: var(--t-h); font-weight: 700; line-height: 1.5;
   }
   header nav { display: contents; }
   header nav a { text-align: right; }
@@ -100,19 +109,22 @@
   .index tr.link:hover td { color: var(--hover); }
 
   /* --- page projet --- */
-  .project h2 { padding: 0 var(--side); font-size: var(--t-l); font-weight: 600; line-height: 1.15; }
-  .project .sub { padding: calc(15 * var(--u)) var(--side) 0; font-size: var(--t-m); line-height: 1.5; }
-  .project .sub a { text-decoration: underline; text-underline-offset: 0.2em; text-decoration-thickness: 1px; }
+  .project h2 { padding: 0 var(--side); font-size: var(--t-l); font-weight: var(--tw); line-height: 1.15; }
+  /* en-tête de projet : titre 42 → sous-titre 21 → lignes / liens 15, espaces réguliers */
+  .project .sub { padding: calc(8 * var(--u)) var(--side) 0; font-size: var(--t-m); line-height: 1.45; }
+  .project .sub > div:first-child { font-size: var(--t-ml); line-height: 1.25; margin-bottom: calc(6 * var(--u)); }
+  .project .sub > div:only-child { margin-bottom: 0; }
+  .project .sub a { text-decoration: none; } /* liens du sous-titre : non soulignés, changent de couleur au survol */
   .project .gallery {
     display: grid; grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: calc(64 * var(--u)) calc(48 / 1080 * 100%); align-items: center;
+    gap: var(--ggap) calc(48 / 1080 * 100%); align-items: center;
     max-width: calc(var(--zone) + 2 * var(--side)); margin: 0 auto;
     padding: var(--block) var(--side) 0;
   }
   .project .gallery img:last-child:nth-child(odd) { grid-column: 1 / -1; width: calc(50% - 24 / 1080 * 100%); justify-self: center; }
   /* texte : même largeur que la page info ; fiche à droite */
   .project .cols {
-    display: grid; grid-template-columns: minmax(0, calc(550 * var(--u))) minmax(0, calc(300 * var(--u)));
+    display: grid; grid-template-columns: minmax(0, var(--textw)) minmax(0, var(--fichew));
     gap: var(--top) calc(36 * var(--u)); align-items: start;
     justify-content: space-between;  /* texte à gauche, fiche calée à droite */
     max-width: calc(var(--zone) + 2 * var(--side)); margin: 0 auto;  /* aligné sur les images */
@@ -126,7 +138,7 @@
   .back { display: block; max-width: calc(var(--zone) + 2 * var(--side)); margin: var(--top) auto 0; padding: 0 var(--side); color: var(--muted); }
 
   /* --- info : même colonne de texte que les projets --- */
-  .info { max-width: calc(550 * var(--u) + 2 * var(--side)); padding: 0 var(--side); }
+  .info { max-width: calc(var(--textw) + 2 * var(--side)); padding: 0 var(--side); }
   .info h3 { font-size: var(--t-m); font-weight: 400; margin: calc(30 * var(--u)) 0 calc(10 * var(--u)); }
   .info ul { list-style: none; }
   .info li { margin-bottom: calc(4 * var(--u)); }
@@ -142,13 +154,14 @@
 
   /* --- mobile --- */
   @media (max-width: 736px) {
-    :root { --side: 16px; --top: 24px; --block: 40px; --row: 32px; --t-l: 30px; }
+    :root { --side: 16px; --top: 24px; --block: 40px; --row: 32px; --ggap: 16px;
+            --t-l: calc(var(--s-tl, 42) * 0.72px); --t-ml: calc(var(--s-tml, 21) * 0.86px); }
     header { grid-template-columns: 1fr auto auto auto; gap: 16px; padding: 20px var(--side) 16px; font-size: 15px; }
     .atlas .row { flex-direction: column; gap: 0; }
     .atlas .tile + .tile { margin-top: var(--row); }
     .tile { width: 100%; margin-top: 0; }
     .tile img { width: 100%; }
-    .project .gallery { grid-template-columns: 1fr; gap: 16px; }
+    .project .gallery { grid-template-columns: 1fr; }
     .project .gallery img:last-child:nth-child(odd) { width: 100%; }
     .project .cols { grid-template-columns: 1fr; }
     .index, .index tbody, .index tr, .index td { display: block; width: auto !important; }
@@ -166,9 +179,9 @@
 <header>
   <a href="#atlas" id="site-name"></a>
   <nav>
-    <a href="#atlas">atlas</a>
-    <a href="#index">index</a>
-    <a href="#info">info</a>
+    <a href="#atlas" id="nav-atlas">atlas</a>
+    <a href="#index" id="nav-index">index</a>
+    <a href="#info" id="nav-info">info</a>
   </nav>
 </header>
 
@@ -187,6 +200,28 @@
 <script>
 const C = window.CONTENT;
 const PROJECTS = Object.fromEntries(C.projects.map(p => [p.id, p]));
+const T = Object.assign({ atlas: "atlas", index: "index", info: "info", back: "← index", more: "Voir +" }, C.texts || {});
+
+/* apparence (back office → Apparence) */
+const FONTS = { "Rethink Sans": 1, "Inter": 1, "DM Sans": 1, "Space Grotesk": 1, "IBM Plex Sans": 1, "Work Sans": 1, "Manrope": 1, "Karla": 1, "Archivo": 1, "Instrument Sans": 1 };
+function applyStyle(S) {
+  S = S || {}; const r = document.documentElement.style;
+  ["bg", "ink", "muted", "hover"].forEach(k => S[k] ? r.setProperty("--" + k, S[k]) : r.removeProperty("--" + k));
+  if (S.ink) r.setProperty("--line", S.ink); else r.removeProperty("--line");
+  ["ts", "tm", "tml", "tl", "th", "side", "top", "block", "row", "ggap", "textw", "fichew"].forEach(k =>
+    S[k] !== undefined && S[k] !== "" ? r.setProperty("--s-" + k, Number(S[k])) : r.removeProperty("--s-" + k));
+  S.titleWeight ? r.setProperty("--tw", S.titleWeight) : r.removeProperty("--tw");
+  const font = S.font || "Rethink Sans";
+  r.setProperty("--font", `"${font}"`);
+  if (font !== "Rethink Sans" && FONTS[font] && !document.getElementById("font-" + font)) {
+    const l = document.createElement("link"); l.rel = "stylesheet"; l.id = "font-" + font;
+    l.href = "https://fonts.googleapis.com/css2?family=" + font.replace(/ /g, "+") + ":wght@400;600;700&display=swap";
+    document.head.append(l);
+  }
+}
+applyStyle(C.style);
+// aperçu en direct depuis le back office
+window.addEventListener("message", e => { if (e.origin === location.origin && e.data && e.data.type === "preview-style") applyStyle(e.data.style); });
 
 function img(name, alt) {
   const el = document.createElement("img");
@@ -197,6 +232,7 @@ function txt(tag, s, cls) { const e = document.createElement(tag); e.textContent
 
 document.getElementById("site-name").textContent = C.site.name;
 document.title = C.site.name;
+["atlas", "index", "info"].forEach(k => document.getElementById("nav-" + k).textContent = T[k]);
 
 /* atlas */
 const grid = document.getElementById("atlas-grid");
@@ -280,7 +316,7 @@ function renderProject(id) {
   const cols = txt("div", "", "cols");
   const t = txt("div", "", "text");
   p.text.forEach(s => t.append(txt("p", s)));
-  if (p.link && p.link.url) { const l = txt("a", p.link.label || "Voir +", "more"); l.href = p.link.url; l.target = "_blank"; l.rel = "noopener"; t.append(l); }
+  if (p.link && p.link.url) { const l = txt("a", p.link.label || T.more, "more"); l.href = p.link.url; l.target = "_blank"; l.rel = "noopener"; t.append(l); }
   cols.append(t);
   if (details.length) {
     const dl = document.createElement("dl"); dl.className = "details ruled";
@@ -288,7 +324,7 @@ function renderProject(id) {
     cols.append(dl);
   }
   el.append(cols);
-  const b = txt("a", "← index", "back"); b.href = "#index"; el.append(b);
+  const b = txt("a", T.back, "back"); b.href = "#index"; el.append(b);
 }
 
 function route() {
