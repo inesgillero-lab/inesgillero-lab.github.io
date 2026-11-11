@@ -6,11 +6,11 @@ window.CONTENT = {
       "title": "Setenta años en una casa",
       "subtitle": [
         {
-          "text": "Film, 4 min 33",
+          "text": "Voyage d’études, octobre 2026 — Bordeaux, Bilbao, Gijón, Avilés, Bayonne",
           "url": "Espagne"
         },
         {
-          "text": "Voyage d’études, octobre 2026 — Bordeaux, Bilbao, Gijón, Avilés, Bayonne",
+          "text": "",
           "url": ""
         }
       ],
@@ -40,7 +40,7 @@ window.CONTENT = {
         "capture-decran-2026-11-11-a-16-33-48.png",
         "setenta-anos-en-una-casa.mp4"
       ],
-      "kicker": "Film, 4 min 33 — Voyage d’études, octobre 2026 — Bordeaux, Bilbao, Gijón, Avilés, Bayonne"
+      "kicker": "Voyage d’études, octobre 2026 — Bordeaux, Bilbao, Gijón, Avilés, Bayonne"
     },
     {
       "id": "atlascoproprietes",
@@ -597,20 +597,18 @@ window.CONTENT = {
       {
         "image": "atlascopro-axos.gif",
         "project": "atlascoproprietes",
-        "col": 530,
-        "width": 530,
+        "col": 481,
+        "width": 464,
         "offset": 0,
         "caption": "",
         "align": "gauche"
-      }
-    ],
-    [
+      },
       {
-        "image": "setenta-anos-en-una-casa.jpg",
+        "image": "capture-decran-2026-11-11-a-16-33-48.png",
         "project": "setentaanosenunacasa",
-        "col": 530,
-        "width": 530,
-        "offset": 0,
+        "col": 500,
+        "width": 500,
+        "offset": 60,
         "caption": "",
         "align": "gauche"
       }
