@@ -19,8 +19,7 @@ window.CONTENT = {
       "annee": "2026",
       "hidden": false,
       "text": [
-        "Un film de 4 min 33 réalisé pendant le voyage d’études d’octobre 2026. Il part de l’histoire de Maricarmen, morte avant d’avoir pu rentrer chez elle, et la suit jusqu’à aujourd’hui : l’appel à la grève générale et les élections qui approchent en Espagne.",
-        "Le voyage, parti de Saint-Étienne, a traversé Bordeaux, Bilbao, Gijón, Avilés et Bayonne, pour regarder ce que l’industrie, la guerre, le logement et la reconversion ont laissé dans les villes."
+        "Setenta años en una casa, un film de 4 min 33, revient sur la mort de Maricarmen Abascal. Le 7 octobre 2026, alors que nous étions à Gijón pendant le voyage d’études, elle est morte à Madrid, à 87 ans, avant d’avoir pu rentrer chez elle. Son histoire ouvre sur la crise du logement qui touche aujourd’hui l’Espagne, et sur la montée de l’extrême droite à l’approche du scrutin."
       ],
       "details": [
         {
