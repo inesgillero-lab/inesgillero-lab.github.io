@@ -2,6 +2,47 @@
 window.CONTENT = {
   "projects": [
     {
+      "id": "setentaanosenunacasa",
+      "title": "Setenta años en una casa",
+      "subtitle": [
+        {
+          "text": "Film, 4 min 33",
+          "url": "Espagne"
+        },
+        {
+          "text": "Voyage d’études, octobre 2026 — Bordeaux, Bilbao, Gijón, Avilés, Bayonne",
+          "url": ""
+        }
+      ],
+      "type": "Film",
+      "lieu": "Espagne",
+      "annee": "2026",
+      "hidden": false,
+      "text": [
+        "Un film de 4 min 33 réalisé pendant le voyage d’études d’octobre 2026. Il part de l’histoire de Maricarmen, morte avant d’avoir pu rentrer chez elle, et la suit jusqu’à aujourd’hui : l’appel à la grève générale et les élections qui approchent en Espagne.",
+        "Le voyage, parti de Saint-Étienne, a traversé Bordeaux, Bilbao, Gijón, Avilés et Bayonne, pour regarder ce que l’industrie, la guerre, le logement et la reconversion ont laissé dans les villes."
+      ],
+      "details": [
+        {
+          "label": "Durée",
+          "value": "4 min 33"
+        },
+        {
+          "label": "Cadre",
+          "value": "Voyage d’études, octobre 2026"
+        }
+      ],
+      "link": {
+        "label": "",
+        "url": ""
+      },
+      "images": [
+        "capture-decran-2026-11-11-a-16-33-48.png",
+        "setenta-anos-en-una-casa.mp4"
+      ],
+      "kicker": "Film, 4 min 33 — Voyage d’études, octobre 2026 — Bordeaux, Bilbao, Gijón, Avilés, Bayonne"
+    },
+    {
       "id": "atlascoproprietes",
       "title": "Atlas des copropriétés en difficulté",
       "kicker": "Mémoire — Grigny 2 et huit autres grandes copropriétés",
@@ -556,6 +597,17 @@ window.CONTENT = {
       {
         "image": "atlascopro-axos.gif",
         "project": "atlascoproprietes",
+        "col": 530,
+        "width": 530,
+        "offset": 0,
+        "caption": "",
+        "align": "gauche"
+      }
+    ],
+    [
+      {
+        "image": "setenta-anos-en-una-casa.jpg",
+        "project": "setentaanosenunacasa",
         "col": 530,
         "width": 530,
         "offset": 0,

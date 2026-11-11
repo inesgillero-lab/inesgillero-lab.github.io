@@ -121,6 +121,7 @@
     max-width: calc(var(--zone) + 2 * var(--side)); margin: 0 auto;
     padding: var(--block) var(--side) 0;
   }
+  .project .gallery video { grid-column: 1 / -1; width: 100%; display: block; background: #000; }
   .project .gallery img:last-child:nth-child(odd) { grid-column: 1 / -1; width: calc(50% - 24 / 1080 * 100%); justify-self: center; }
   /* texte : même largeur que la page info ; fiche à droite */
   .project .cols {
@@ -223,7 +224,16 @@ applyStyle(C.style);
 // aperçu en direct depuis le back office
 window.addEventListener("message", e => { if (e.origin === location.origin && e.data && e.data.type === "preview-style") applyStyle(e.data.style); });
 
-function img(name, alt) {
+const isVideo = name => /\.(mp4|webm|m4v)$/i.test(name || "");
+// image ou vidéo ; dans l'atlas (thumb), la vidéo tourne en boucle sans le son
+function img(name, alt, thumb) {
+  if (isVideo(name)) {
+    const v = document.createElement("video");
+    v.src = "images/" + name + "#t=0.1"; v.playsInline = true; v.preload = "metadata";
+    if (thumb) { v.muted = true; v.loop = true; v.autoplay = true; } else v.controls = true;
+    v.setAttribute("aria-label", alt || "");
+    return v;
+  }
   const el = document.createElement("img");
   el.src = "images/" + name; el.alt = alt || ""; el.loading = "lazy";
   return el;
@@ -245,7 +255,7 @@ C.atlas.forEach(rowItems => {
     const a = document.createElement("a");
     a.className = "tile"; a.href = "#" + t.project;
     a.style.cssText = `--c:${t.col};--w:${t.width};--o:${t.offset}`;
-    a.append(img(t.image, p ? p.title : ""), txt("span", t.caption || (p ? p.title : "")));
+    a.append(img(t.image, p ? p.title : "", true), txt("span", t.caption || (p ? p.title : "")));
     row.append(a);
   });
   grid.append(row);
