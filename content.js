@@ -37,7 +37,6 @@ window.CONTENT = {
         "url": ""
       },
       "images": [
-        "capture-decran-2026-11-11-a-16-33-48.png",
         "setenta-anos-en-una-casa.mp4"
       ],
       "kicker": "Voyage d’études, octobre 2026 — Bordeaux, Bilbao, Gijón, Avilés, Bayonne"
