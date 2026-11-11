@@ -746,7 +746,7 @@ window.CONTENT = {
   ],
   "info": {
     "intro": [
-      "Étudiante en master à l'École Nationale Supérieure d'Architecture de Saint-Étienne, (domaine FACT).\nJe m'intéresse aux enjeux politiques de l'architecture et au rôle de l'architecte au-delà du bâti, notamment à travers le média Architecture in a World on Fire."
+      "Étudiante en master à l'École Nationale Supérieure d'Architecture de Saint-Étienne.\nJe m'intéresse aux enjeux politiques de l'architecture et au rôle de l'architecte au-delà du bâti, notamment à travers le média Architecture in a World on Fire."
     ],
     "sections": [
       {
