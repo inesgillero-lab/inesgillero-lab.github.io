@@ -1,4 +1,3 @@
-/* Contenu du site — généré par le back office (admin). */
 window.CONTENT = {
   "projects": [
     {
@@ -746,7 +745,8 @@ window.CONTENT = {
   ],
   "info": {
     "intro": [
-      "Étudiante en master à l'École Nationale Supérieure d'Architecture de Saint-Étienne.\nJe m'intéresse aux enjeux politiques de l'architecture et au rôle de l'architecte au-delà du bâti, notamment à travers le média Architecture in a World on Fire."
+      "Étudiante en master 2 à l’École Nationale Supérieure d’Architecture de Saint-Étienne.\nJe m’intéresse aux enjeux politiques de l’architecture et au rôle de l’architecte au-delà du bâti, notamment à travers le média Architecture in a World on Fire. J’explore les traces et imaginaires que le territoire et la société révèlent à travers différents médium.",
+      "J’ai réalisé un stage chez AHA pour comprendre comment façonner autrement la perception du territoire, puis chez SOL Architecture, qui défend un urbanisme du soin et de la réhabilitation. J’y ai travaillé sur les copropriétés en difficulté, un sujet que je développe aujourd’hui dans mon mémoire."
     ],
     "sections": [
       {
@@ -773,7 +773,8 @@ window.CONTENT = {
           "Ensa Saint-Étienne, Licence en architecture, (2020-2024)"
         ]
       }
-    ]
+    ],
+    "photo": "portrait.jpg"
   },
   "links": [
     {

@@ -144,6 +144,11 @@
   .info ul { list-style: none; }
   .info li { margin-bottom: calc(4 * var(--u)); }
   .info li::before { content: "– "; }
+  /* photo : en petit, en haut à droite de la page info */
+  /* photo : dans la marge de droite, en face de la rubrique choisie (Expériences par défaut) */
+  .info.has-photo { max-width: none; display: grid; grid-template-columns: minmax(0, var(--textw)) 1fr calc(var(--s-photo, 280) * var(--u)); }
+  .info.has-photo > * { grid-column: 1; }
+  .info.has-photo > .info-photo { grid-column: 3; align-self: start; width: 100%; height: auto; display: block; }
 
   /* --- pied de page : trois liens centrés --- */
   footer {
@@ -172,6 +177,8 @@
     .index td:not(:first-child) { color: var(--muted); display: inline; }
     .index td:not(:first-child):not(:empty) ~ td:not(:empty)::before { content: " · "; }
     footer { gap: 40px; }
+    .info.has-photo { grid-template-columns: minmax(0, 1fr); }
+    .info.has-photo > .info-photo { grid-column: 1; grid-row: auto !important; width: 160px; justify-self: end; margin: 16px 0 4px; }
   }
 </style>
 </head>
@@ -209,7 +216,7 @@ function applyStyle(S) {
   S = S || {}; const r = document.documentElement.style;
   ["bg", "ink", "muted", "hover"].forEach(k => S[k] ? r.setProperty("--" + k, S[k]) : r.removeProperty("--" + k));
   if (S.ink) r.setProperty("--line", S.ink); else r.removeProperty("--line");
-  ["ts", "tm", "tml", "tl", "th", "side", "top", "block", "row", "ggap", "textw", "fichew"].forEach(k =>
+  ["ts", "tm", "tml", "tl", "th", "side", "top", "block", "row", "ggap", "textw", "fichew", "photo"].forEach(k =>
     S[k] !== undefined && S[k] !== "" ? r.setProperty("--s-" + k, Number(S[k])) : r.removeProperty("--s-" + k));
   S.titleWeight ? r.setProperty("--tw", S.titleWeight) : r.removeProperty("--tw");
   const font = S.font || "Rethink Sans";
@@ -280,6 +287,20 @@ C.info.sections.forEach(sec => {
   sec.items.forEach(it => ul.append(txt("li", it)));
   info.append(ul);
 });
+if (C.info.photo) {
+  // la photo commence à la hauteur de la liste de la rubrique choisie
+  const lists = info.querySelectorAll(":scope > ul");
+  const at = lists[Math.min(C.info.photoAt ?? 1, lists.length - 1)];
+  const ph = img(C.info.photo, C.site.name); ph.className = "info-photo";
+  info.classList.add("has-photo");
+  if (at) {
+    (at.previousElementSibling || at).before(ph);   // dans le texte (mobile) : avant le titre de la rubrique
+    // sur ordinateur : en face de la liste (la photo, sortie du flux, ne compte pas dans les rangées)
+    const kids = [...info.children], row = kids.indexOf(at);
+    ph.style.gridRow = row + " / span " + (kids.length - row);
+  }
+  else info.append(ph);
+}
 
 /* liens du bas */
 const links = document.getElementById("links");
