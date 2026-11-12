@@ -186,7 +186,7 @@
     .index td:not(:first-child):not(:empty) ~ td:not(:empty)::before { content: " · "; }
     footer { gap: 40px; }
     .info.has-photo { grid-template-columns: minmax(0, 1fr); }
-    .info.has-photo > .info-photo { grid-column: 1; grid-row: auto !important; width: 160px; justify-self: end; margin: 16px 0 4px; }
+    .info.has-photo > .info-photo { grid-column: 1; grid-row: auto !important; order: 99; width: 160px; justify-self: end; margin: 32px 0 0; }   /* téléphone : tout en bas, après la dernière rubrique */
   }
 </style>
 </head>
