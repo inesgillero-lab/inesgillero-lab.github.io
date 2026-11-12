@@ -1,3 +1,4 @@
+/* Contenu du site — généré par le back office (admin). */
 window.CONTENT = {
   "projects": [
     {
@@ -156,7 +157,8 @@ window.CONTENT = {
         "ciudad-7.jpg",
         "ciudad-3.jpg",
         "ciudad-4.jpg"
-      ]
+      ],
+      "subtitle": []
     },
     {
       "id": "chroniquedunelutte",
@@ -181,6 +183,16 @@ window.CONTENT = {
       "images": [
         "chronique-1.jpg",
         "chronique-2.jpg"
+      ],
+      "subtitle": [
+        {
+          "text": "Graphic novel",
+          "url": ""
+        },
+        {
+          "text": "Architecture in a World on Fire",
+          "url": ""
+        }
       ]
     },
     {
@@ -201,12 +213,20 @@ window.CONTENT = {
         "url": "https://architectureinfire.org"
       },
       "images": [
-        "awof-5.jpg",
-        "awof-6.jpg",
         "awof-1.jpg",
+        "awof-6-2.jpg",
         "awof-2.jpg",
-        "awof-3.jpg",
-        "awof-4.jpg"
+        "awof-3.jpg"
+      ],
+      "subtitle": [
+        {
+          "text": "Total, Grandpuits (77)",
+          "url": ""
+        },
+        {
+          "text": "Architecture in a World on Fire",
+          "url": ""
+        }
       ]
     },
     {
@@ -791,6 +811,12 @@ window.CONTENT = {
     }
   ],
   "site": {
-    "name": "ines gille rodriguez"
+    "name": "ines gille rodriguez",
+    "favicon": "icone-rond.png"
+  },
+  "texts": {},
+  "style": {
+    "cursorColor": "#f27e7e",
+    "cursor": "croix"
   }
 };

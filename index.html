@@ -8,6 +8,7 @@
 <meta property="og:title" content="ines gille rodriguez">
 <meta property="og:description" content="portfolio">
 <meta property="og:image" content="images/image02.jpg">
+<link rel="icon" id="favicon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M3%202v18l5-5%203.5%207%203-1.5L11%2013.5h7z%22%20fill%3D%22%23e10600%22%20stroke%3D%22%23fff%22%20stroke-width%3D%221.2%22%20stroke-linejoin%3D%22round%22/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Rethink+Sans:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
@@ -93,7 +94,14 @@
   .atlas .row.al-droite { justify-content: flex-end; }
   .atlas .row.al-reparti { justify-content: space-between; }
   .tile { flex: none; width: calc(var(--c) / 1080 * 100%); margin-top: calc(var(--o, 0) / 1080 * 100%); }
-  .tile img { width: calc(var(--w) / var(--c) * 100%); background: #f3f3f3; }
+  .tile .pic { width: calc(var(--w) / var(--c) * 100%); background: #f3f3f3; }
+  .tile .pic img, .tile .pic video { display: block; width: 100%; height: auto; transition: transform .6s ease; }
+  .tile:hover { position: relative; z-index: 1; }
+  /* curseur personnalisé (back office → Apparence → Curseur) */
+  html { cursor: var(--cursor, auto); }
+  a, button, video, .tile, tr.link { cursor: var(--cursor, pointer); }
+  .tile:hover .pic img, .tile:hover .pic video { transform: scale(1.02); }   /* léger zoom au survol, qui déborde un peu du cadre */
+  @media (prefers-reduced-motion: reduce) { .tile:hover .pic img, .tile:hover .pic video { transform: none; } }
   .tile span { display: block; margin-top: calc(15 * var(--u)); }
 
   /* --- index : mêmes filets que les fiches --- */
@@ -166,7 +174,7 @@
     .atlas .row { flex-direction: column; gap: 0; }
     .atlas .tile + .tile { margin-top: var(--row); }
     .tile { width: 100%; margin-top: 0; }
-    .tile img { width: 100%; }
+    .tile .pic { width: 100%; }
     .project .gallery { grid-template-columns: 1fr; }
     .project .gallery img:last-child:nth-child(odd) { width: 100%; }
     .project .cols { grid-template-columns: 1fr; }
@@ -212,6 +220,19 @@ const T = Object.assign({ atlas: "atlas", index: "index", info: "info", back: "�
 
 /* apparence (back office → Apparence) */
 const FONTS = { "Rethink Sans": 1, "Inter": 1, "DM Sans": 1, "Space Grotesk": 1, "IBM Plex Sans": 1, "Work Sans": 1, "Manrope": 1, "Karla": 1, "Archivo": 1, "Instrument Sans": 1 };
+// formes de curseur : [svg, point actif x, y]
+function cursorSvg(kind, c) {
+  const svg = (w, body) => `<svg xmlns="http://www.w3.org/2000/svg" width="${w}" height="${w}" viewBox="0 0 24 24">${body}</svg>`;
+  const A = "M3 2v18l5-5 3.5 7 3-1.5L11 13.5h7z";
+  return {
+    "fleche": [svg(24, `<path d="${A}" fill="${c}" stroke="#fff" stroke-width="1.2" stroke-linejoin="round"/>`), 3, 2],
+    "fleche-contour": [svg(24, `<path d="${A}" fill="#fff" stroke="${c}" stroke-width="1.6" stroke-linejoin="round"/>`), 3, 2],
+    "fleche-fine": [svg(24, `<path d="M3 2v13l3.6-3.4 2.6 6.4 1.6-.7-2.6-6.2H13z" fill="${c}"/>`), 3, 2],
+    "point": [svg(20, `<circle cx="12" cy="12" r="6" fill="${c}"/>`), 10, 10],
+    "cercle": [svg(28, `<circle cx="12" cy="12" r="8" fill="none" stroke="${c}" stroke-width="1.6"/>`), 14, 14],
+    "croix": [svg(24, `<path d="M12 3v18M3 12h18" stroke="${c}" stroke-width="1.6"/>`), 12, 12]
+  }[kind] || null;
+}
 function applyStyle(S) {
   S = S || {}; const r = document.documentElement.style;
   ["bg", "ink", "muted", "hover"].forEach(k => S[k] ? r.setProperty("--" + k, S[k]) : r.removeProperty("--" + k));
@@ -219,6 +240,12 @@ function applyStyle(S) {
   ["ts", "tm", "tml", "tl", "th", "side", "top", "block", "row", "ggap", "textw", "fichew", "photo"].forEach(k =>
     S[k] !== undefined && S[k] !== "" ? r.setProperty("--s-" + k, Number(S[k])) : r.removeProperty("--s-" + k));
   S.titleWeight ? r.setProperty("--tw", S.titleWeight) : r.removeProperty("--tw");
+  // curseur et icône de l'onglet
+  const cur = cursorSvg(S.cursor || "fleche", S.cursorColor || "#e10600");
+  if (cur) r.setProperty("--cursor", `url("data:image/svg+xml,${encodeURIComponent(cur[0])}") ${cur[1]} ${cur[2]}, auto`); else r.removeProperty("--cursor");
+  const fav = document.getElementById("favicon");
+  if (C.site.favicon) { fav.removeAttribute("type"); fav.href = "images/" + C.site.favicon; }
+  else { fav.type = "image/svg+xml"; fav.href = "data:image/svg+xml," + encodeURIComponent((cur || cursorSvg("fleche", S.cursorColor || "#e10600"))[0]); }
   const font = S.font || "Rethink Sans";
   r.setProperty("--font", `"${font}"`);
   if (font !== "Rethink Sans" && FONTS[font] && !document.getElementById("font-" + font)) {
@@ -262,7 +289,8 @@ C.atlas.forEach(rowItems => {
     const a = document.createElement("a");
     a.className = "tile"; a.href = "#" + t.project;
     a.style.cssText = `--c:${t.col};--w:${t.width};--o:${t.offset}`;
-    a.append(img(t.image, p ? p.title : "", true), txt("span", t.caption || (p ? p.title : "")));
+    const pic = txt("div", "", "pic"); pic.append(img(t.image, p ? p.title : "", true));
+    a.append(pic, txt("span", t.caption || (p ? p.title : "")));
     row.append(a);
   });
   grid.append(row);
