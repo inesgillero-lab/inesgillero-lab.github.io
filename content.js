@@ -152,9 +152,6 @@ window.CONTENT = {
       "images": [
         "ciudad-6.jpg",
         "ciudad-1.jpg",
-        "ciudad-2.jpg",
-        "ciudad-5.jpg",
-        "ciudad-7.jpg",
         "ciudad-3.jpg",
         "ciudad-4.jpg"
       ],
