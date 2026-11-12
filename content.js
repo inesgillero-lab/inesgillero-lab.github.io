@@ -814,6 +814,7 @@ window.CONTENT = {
   "texts": {},
   "style": {
     "cursorColor": "#f27e7e",
-    "cursor": "croix"
+    "cursor": "croix",
+    "photo": 200
   }
 };
