@@ -309,7 +309,13 @@ window.CONTENT = {
         "label": "",
         "url": ""
       },
-      "images": []
+      "images": [
+        "452649278-866186648183216-7907951313573411151-n.jpg",
+        "capture-decran-2024-08-14-112226.png",
+        "capture-decran-2024-08-14-112418.png",
+        "sans-titre-1.gif"
+      ],
+      "subtitle": []
     },
     {
       "id": "lelogementcommedispositifpolitique",
@@ -332,6 +338,12 @@ window.CONTENT = {
         "image15.jpg",
         "logement-1.jpg",
         "logement-2.jpg"
+      ],
+      "subtitle": [
+        {
+          "text": "Rapport d'étude",
+          "url": ""
+        }
       ]
     },
     {
@@ -364,7 +376,8 @@ window.CONTENT = {
         "image35.jpg",
         "maison-1.jpg",
         "maison-2.jpg"
-      ]
+      ],
+      "subtitle": []
     },
     {
       "id": "habiterlecretderoch",
@@ -392,8 +405,10 @@ window.CONTENT = {
         "url": ""
       },
       "images": [
-        "cretderoch-1.jpg"
-      ]
+        "cretderoch-1.jpg",
+        "maquette-s3e2-2.png"
+      ],
+      "subtitle": []
     },
     {
       "id": "enluttes",
@@ -418,7 +433,8 @@ window.CONTENT = {
         "enluttes-3.jpg",
         "enluttes-4.jpg",
         "enluttes-5.jpg"
-      ]
+      ],
+      "subtitle": []
     },
     {
       "id": "habiterletalweg",
@@ -455,7 +471,8 @@ window.CONTENT = {
         "talweg-3.jpg",
         "talweg-4.jpg",
         "talweg-5.jpg"
-      ]
+      ],
+      "subtitle": []
     },
     {
       "id": "chaiviticole",
@@ -489,7 +506,8 @@ window.CONTENT = {
         "chai-3.jpg",
         "chai-4.jpg",
         "chai-5.jpg"
-      ]
+      ],
+      "subtitle": []
     },
     {
       "id": "sublimis",
@@ -531,8 +549,17 @@ window.CONTENT = {
       },
       "images": [
         "image58.jpg",
-        "sublimis-1.jpg",
-        "image32.jpg"
+        "sublimis-1.jpg"
+      ],
+      "subtitle": [
+        {
+          "text": "Biennale Internationale du Design de Saint-Étienne",
+          "url": ""
+        },
+        {
+          "text": "ENSASE",
+          "url": ""
+        }
       ]
     },
     {
