@@ -6,8 +6,8 @@ window.CONTENT = {
       "title": "Setenta años en una casa",
       "subtitle": [
         {
-          "text": "Voyage d’études, octobre 2026 — Bordeaux, Bilbao, Gijón, Avilés, Bayonne",
-          "url": "Espagne"
+          "text": "",
+          "url": ""
         },
         {
           "text": "",
@@ -38,7 +38,7 @@ window.CONTENT = {
       "images": [
         "setenta-anos-en-una-casa.mp4"
       ],
-      "kicker": "Voyage d’études, octobre 2026 — Bordeaux, Bilbao, Gijón, Avilés, Bayonne"
+      "kicker": ""
     },
     {
       "id": "atlascoproprietes",
@@ -90,7 +90,7 @@ window.CONTENT = {
       "id": "pellicule",
       "title": "Pellicule",
       "kicker": "",
-      "type": "Photos",
+      "type": "",
       "lieu": "(...)",
       "annee": "",
       "hidden": false,
@@ -117,15 +117,16 @@ window.CONTENT = {
         "pellicule-12.jpg",
         "pellicule-13.jpg",
         "pellicule-14.jpg"
-      ]
+      ],
+      "subtitle": []
     },
     {
       "id": "unaciudaddentrodelaciudad",
       "title": "Una ciudad dentro de la ciudad",
       "kicker": "",
-      "type": "Logements collectifs (concours)",
-      "lieu": "Ibagué, (Colombie)",
-      "annee": "2025",
+      "type": "",
+      "lieu": "",
+      "annee": "",
       "hidden": false,
       "text": [
         "Le projet adopte une approche intégrée qui articule des dimensions urbaines, sociales, environnementales et économiques dès la phase de conception. Il s’appuie sur des stratégies passives adaptées au climat local, une gestion durable de l’eau, l’utilisation de matériaux locaux et modulaires, ainsi qu’une forte participation communautaire.",
@@ -143,6 +144,10 @@ window.CONTENT = {
         {
           "label": "Équipe",
           "value": "Valentin Ciccarone\nLouise Méhois"
+        },
+        {
+          "label": "Année",
+          "value": "2025"
         }
       ],
       "link": {
@@ -160,7 +165,7 @@ window.CONTENT = {
     {
       "id": "chroniquedunelutte",
       "title": "Chronique d'une lutte",
-      "kicker": "Graphic novel — Architecture in a World on Fire",
+      "kicker": "",
       "type": "Graphic novel",
       "lieu": "Grandpuits (77) / Saint-Étienne (42)",
       "annee": "2024-2025",
@@ -183,11 +188,11 @@ window.CONTENT = {
       ],
       "subtitle": [
         {
-          "text": "Graphic novel",
+          "text": "",
           "url": ""
         },
         {
-          "text": "Architecture in a World on Fire",
+          "text": "",
           "url": ""
         }
       ]
@@ -195,7 +200,7 @@ window.CONTENT = {
     {
       "id": "awof",
       "title": "Architecture in a World on Fire",
-      "kicker": "Total, Grandpuits (77) — Architecture in a World on Fire",
+      "kicker": "Architecture in a World on Fire",
       "type": "Exposition, web",
       "lieu": "Grandpuits (77) / Saint-Étienne (42)",
       "annee": "2024-2025",
@@ -217,19 +222,15 @@ window.CONTENT = {
       ],
       "subtitle": [
         {
-          "text": "Total, Grandpuits (77)",
-          "url": ""
-        },
-        {
           "text": "Architecture in a World on Fire",
-          "url": ""
+          "url": "https://architectureinfire.org/"
         }
       ]
     },
     {
       "id": "championnes",
       "title": "Championnes by Disturb",
-      "kicker": "Montaud, vétuste mais en vie — Dysturb — Collectif Item",
+      "kicker": "Dysturb — Collectif Item",
       "type": "Exposition photo",
       "lieu": "Lyon (69) / Saint-Étienne (42)",
       "annee": "2024",
@@ -266,10 +267,6 @@ window.CONTENT = {
       ],
       "subtitle": [
         {
-          "text": "Montaud, vétuste mais en vie",
-          "url": ""
-        },
-        {
           "text": "Dysturb",
           "url": "https://dysturb.org/championnes#appelacandidatures"
         },
@@ -283,9 +280,9 @@ window.CONTENT = {
       "id": "revitaliserlesilotsducentreville",
       "title": "Revitaliser les îlots du centre-ville",
       "kicker": "",
-      "type": "Restructuration urbaine",
-      "lieu": "Saint-Étienne (42)",
-      "annee": "2024",
+      "type": "",
+      "lieu": "",
+      "annee": "",
       "hidden": false,
       "text": [
         "Le projet de revitalisation du centre-ville de Saint-Étienne prépare la ville à affronter des phénomènes climatiques de plus en plus critiques. Îlots de chaleur, rez-de-chaussée vacants, logements insalubres : les enjeux sont multiples dans le centre-ville stéphanois.",
@@ -303,6 +300,10 @@ window.CONTENT = {
         {
           "label": "Équipe",
           "value": "Aristide Bouilhol\nFlorine Lyonnet\nChad Vanathatan"
+        },
+        {
+          "label": "Année",
+          "value": "2024"
         }
       ],
       "link": {
@@ -321,9 +322,9 @@ window.CONTENT = {
       "id": "lelogementcommedispositifpolitique",
       "title": "Le logement comme dispositif politique",
       "kicker": "Rapport d'étude",
-      "type": "Rapport d'étude",
+      "type": "",
       "lieu": "",
-      "annee": "2024",
+      "annee": "",
       "hidden": false,
       "text": [
         "Inspiré du magazine « Le 1 », ce rapport d’étude est le fruit de trois années d’observation et de questionnement sur les politiques du logement en France et le rôle des architectes face à cette crise. Avec 4,1 millions de personnes mal logées en 2023 d’après la Fondation pour le Logement des Défavorisés, les mesures étatiques ; loi SRU, loi ELAN, plan « Logement d’abord » restent insuffisantes. L’architecture se heurte à des contraintes normatives qui freinent l’innovation et la réponse aux besoins existants.",
@@ -350,9 +351,9 @@ window.CONTENT = {
       "id": "maisonducretderoch",
       "title": "Maison du Crêt-de-Roch",
       "kicker": "",
-      "type": "Maison de quartier",
-      "lieu": "Saint-Étienne (42)",
-      "annee": "2023",
+      "type": "",
+      "lieu": "",
+      "annee": "",
       "hidden": false,
       "text": [
         "Implantée au sommet de la montée du Crêt-de-Roch, cette maison de quartier s’intègre dans le tissu urbain et offre aux habitants un véritable lieu de vie. Composé d’un espace administratif, événementiel, d’ateliers et d’un périscolaire, le projet est volontairement divisé en deux bâtiments distincts. Il regroupe d’une part les activités événementielles et sportives ouvertes sur la rue et connectées au city-stade, et de l’autre le pôle périscolaire regroupant différents ateliers ouverts sur un jardin réservé aux enfants au sud de la parcelle.",
@@ -366,6 +367,10 @@ window.CONTENT = {
         {
           "label": "Type",
           "value": "Maison de quartier"
+        },
+        {
+          "label": "Année ",
+          "value": "2023"
         }
       ],
       "link": {
@@ -383,9 +388,9 @@ window.CONTENT = {
       "id": "habiterlecretderoch",
       "title": "Habiter le Crêt-de-Roch",
       "kicker": "",
-      "type": "Tiers lieu",
-      "lieu": "Saint-Étienne (42)",
-      "annee": "2023",
+      "type": "",
+      "lieu": "",
+      "annee": "",
       "hidden": false,
       "text": [
         "Le projet propose une maison de ville partagée pour revitaliser le quartier. En rez-de-chaussée, des espaces de coworking, une bibliothèque, des bureaux indépendants et un local vélo sont prévus. Le rez-de-jardin accueille des espaces communs, buanderie, cuisine, avec une vue sur le hall. Une terrasse extérieure permet un lien direct avec la montée d'escalier attenante. Les deux derniers niveaux abritent 6 logements modulaires."
@@ -414,9 +419,9 @@ window.CONTENT = {
       "id": "enluttes",
       "title": "En lutte(s)",
       "kicker": "",
-      "type": "Photos",
-      "lieu": "Saint-Étienne (42)",
-      "annee": "2023",
+      "type": "",
+      "lieu": "",
+      "annee": "",
       "hidden": false,
       "text": [
         "Le 6 avril 2023, lors d'une grève nationale, des milliers de personnes ont défilé pour protester contre la réforme des retraites en France, une mesure controversée visant à repousser l'âge de départ à la retraite et à allonger la durée de cotisation.",
@@ -440,9 +445,9 @@ window.CONTENT = {
       "id": "habiterletalweg",
       "title": "Habiter le talweg",
       "kicker": "",
-      "type": "Logements collectifs",
-      "lieu": "Villars (42)",
-      "annee": "2023",
+      "type": "",
+      "lieu": "",
+      "annee": "",
       "hidden": false,
       "text": [
         "Situé à Villars, au nord-ouest de Saint-Étienne, le projet réorganise le front bâti en lanières avec une place au sud pour l'artisanat et le marché. Il inclut des logements avec jardins partagés et favorise la récupération des eaux de pluie. Les bâtiments surélevés et entourés de noues offrent des espaces communs au rez-de-chaussée. Les communs sont orientés sud pour maximiser l'apport de lumière naturelle, tandis que les chambres, orientées au nord, bénéficient d'une lumière douce et d'une vue sur le parc."
@@ -459,6 +464,10 @@ window.CONTENT = {
         {
           "label": "Équipe",
           "value": "Cathy Vidal"
+        },
+        {
+          "label": "Année ",
+          "value": "2023"
         }
       ],
       "link": {
@@ -478,9 +487,9 @@ window.CONTENT = {
       "id": "chaiviticole",
       "title": "Chai viticole",
       "kicker": "",
-      "type": "Chai & salle communale",
-      "lieu": "Chilhac (43)",
-      "annee": "2023",
+      "type": "",
+      "lieu": "",
+      "annee": "",
       "hidden": false,
       "text": [
         "Ce projet vise à offrir à la commune de Chilhac, située en Haute-Loire, un lieu venant redynamiser le village. Située au coeur d'une parcelle très boisée, le parti-pris était de conserver le parc à l'arrière de la parcelle sans minéraliser le sol.",
@@ -494,6 +503,10 @@ window.CONTENT = {
         {
           "label": "Type",
           "value": "Chai viticole, salle des fêtes"
+        },
+        {
+          "label": "Année ",
+          "value": "2023"
         }
       ],
       "link": {
@@ -554,11 +567,11 @@ window.CONTENT = {
       "subtitle": [
         {
           "text": "Biennale Internationale du Design de Saint-Étienne",
-          "url": ""
+          "url": "https://www.biennale-design.com/saint-etienne/2022/"
         },
         {
           "text": "ENSASE",
-          "url": ""
+          "url": "https://www.st-etienne.archi.fr/2022/03/22/sub-limis/"
         }
       ]
     },
