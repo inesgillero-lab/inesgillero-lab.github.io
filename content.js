@@ -544,8 +544,8 @@ window.CONTENT = {
         }
       ],
       "link": {
-        "label": "Voir la vidéo",
-        "url": "https://youtu.be/TDyjvx0F-IY"
+        "label": "",
+        "url": ""
       },
       "images": [
         "image58.jpg",
