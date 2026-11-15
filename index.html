@@ -11,7 +11,8 @@
 <link rel="icon" id="favicon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M3%202v18l5-5%203.5%207%203-1.5L11%2013.5h7z%22%20fill%3D%22%23e10600%22%20stroke%3D%22%23fff%22%20stroke-width%3D%221.2%22%20stroke-linejoin%3D%22round%22/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Rethink+Sans:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Rethink+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@1,800&display=swap" rel="stylesheet">
 <style>
   /* Système unique, basé sur une page de référence de 1280 px.
      Les valeurs --s-… (tailles, espacements) et les couleurs viennent du back office
@@ -120,7 +121,7 @@
   .project h2 { padding: 0 var(--side); font-size: var(--t-l); font-weight: var(--tw); line-height: 1.15; }
   /* en-tête de projet : titre 42 → sous-titre 21 → lignes / liens 15, espaces réguliers */
   .project .sub { padding: calc(8 * var(--u)) var(--side) 0; font-size: var(--t-m); line-height: 1.45; }
-  .project .sub > div:first-child { font-size: var(--t-ml); line-height: 1.25; margin-bottom: calc(6 * var(--u)); }
+  .project .sub > div:first-child:not(:has(a)) { font-size: var(--t-ml); line-height: 1.25; margin-bottom: calc(6 * var(--u)); }
   .project .sub > div:only-child { margin-bottom: 0; }
   .project .sub a { text-decoration: none; } /* liens du sous-titre : non soulignés, changent de couleur au survol */
   .project .gallery {
@@ -144,7 +145,7 @@
   .project .details > div:first-child { padding-top: 0; }
   .project .details dt { flex: none; }
   .project .details dd { text-align: right; white-space: pre-line; }
-  .back { display: block; max-width: calc(var(--zone) + 2 * var(--side)); margin: var(--top) auto 0; padding: 0 var(--side); color: var(--muted); }
+  .back { display: flex; justify-content: space-between; align-items: center; max-width: calc(var(--zone) + 2 * var(--side)); margin: var(--top) auto 0; padding: 0 var(--side); color: var(--muted); }
 
   /* --- info : même colonne de texte que les projets --- */
   .info { max-width: calc(var(--textw) + 2 * var(--side)); padding: 0 var(--side); }
@@ -165,6 +166,14 @@
     display: flex; justify-content: center; gap: calc(160 * var(--u));
     text-align: center;
   }
+
+
+  /* --- cœur « <3 » en Arial Rounded (installée sur Mac ; ailleurs Nunito, aussi arrondie) — back office : case « Cœur » de chaque projet et de la page info) --- */
+  .heart { font-family: "Arial Rounded MT Bold", "Arial Rounded MT", "Nunito", sans-serif; font-weight: 700; font-style: italic; color: #e10600; font-size: calc(var(--s-heart, 34) * var(--u)); line-height: 1;
+           letter-spacing: .02em; display: inline-block; transition: transform .3s ease; }
+  a.heart:hover { color: #e10600; transform: scale(1.12) rotate(-6deg); }
+  .back a:not(:hover):not(.heart) { color: inherit; }
+  .info .heart, .info.has-photo > .heart { display: block; width: max-content; margin: calc(40 * var(--u)) 0 0 auto; grid-column: 1 / -1; }
 
   /* --- mobile --- */
   @media (max-width: 736px) {
@@ -306,6 +315,19 @@ C.projects.filter(p => !p.hidden).forEach(p => {
   list.append(tr);
 });
 
+/* cœur « <3 » : lien facultatif (musique…) */
+function heart(h) {
+  // un ou plusieurs liens (un par ligne) : à chaque clic, l'un d'eux au hasard
+  const urls = (h.url || "").split(/\s+/).filter(u => /^(https?:|mailto:)/i.test(u));
+  const e = txt(urls.length ? "a" : "span", "<3", "heart");
+  if (urls.length) {
+    const pickUrl = () => { e.href = urls[Math.floor(Math.random() * urls.length)]; };
+    pickUrl(); e.target = "_blank"; e.rel = "noopener";
+    e.addEventListener("click", () => setTimeout(pickUrl, 0));   // le prochain clic pourra tomber sur une autre musique
+  }
+  e.setAttribute("aria-label", "cœur");
+  return e;
+}
 /* info */
 const info = document.getElementById("info");
 C.info.intro.forEach(s => { const pEl = txt("p", ""); s.split("\n").forEach((line, i) => { if (i) pEl.append(document.createElement("br")); pEl.append(line); }); info.append(pEl); });
@@ -315,6 +337,7 @@ C.info.sections.forEach(sec => {
   sec.items.forEach(it => ul.append(txt("li", it)));
   info.append(ul);
 });
+if (C.info.heart && C.info.heart.on) info.append(heart(C.info.heart));
 if (C.info.photo) {
   // la photo commence à la hauteur de la liste de la rubrique choisie
   const lists = info.querySelectorAll(":scope > ul");
@@ -344,7 +367,7 @@ function renderProject(id) {
   el.innerHTML = "";
   el.append(txt("h2", p.title));
   // sous-titre : une ligne par élément (avec lien facultatif), sinon le kicker, sinon type / lieu
-  const subLines = (p.subtitle && p.subtitle.some(l => l.text))
+  const subLines = Array.isArray(p.subtitle)   // liste du back office (même vide) : elle fait foi
     ? p.subtitle.filter(l => l.text)
     : (p.kicker ? p.kicker.split(" — ") : [p.type, p.lieu].filter(s => s && s !== "(...)")).map(text => ({ text }));
   const sub = txt("div", "", "sub");
@@ -357,7 +380,7 @@ function renderProject(id) {
     } else line.textContent = l.text;
     sub.append(line);
   });
-  el.append(sub);
+  if (subLines.length) el.append(sub);
 
   if (p.images.length) {
     const g = txt("div", "", "gallery");
@@ -383,7 +406,11 @@ function renderProject(id) {
     cols.append(dl);
   }
   el.append(cols);
-  const b = txt("a", T.back, "back"); b.href = "#index"; el.append(b);
+  // bas de page : « ← index » à gauche, le cœur à droite (si activé)
+  const end = txt("div", "", "back");
+  const b = txt("a", T.back); b.href = "#index"; end.append(b);
+  if (p.heart && p.heart.on) end.append(heart(p.heart));
+  el.append(end);
 }
 
 function route() {

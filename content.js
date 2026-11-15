@@ -1,19 +1,9 @@
-/* Contenu du site — généré par le back office (admin). */
 window.CONTENT = {
   "projects": [
     {
       "id": "setentaanosenunacasa",
       "title": "Setenta años en una casa",
-      "subtitle": [
-        {
-          "text": "",
-          "url": ""
-        },
-        {
-          "text": "",
-          "url": ""
-        }
-      ],
+      "subtitle": [],
       "type": "Film",
       "lieu": "Espagne",
       "annee": "2026",
@@ -38,12 +28,16 @@ window.CONTENT = {
       "images": [
         "setenta-anos-en-una-casa.mp4"
       ],
-      "kicker": ""
+      "kicker": "",
+      "heart": {
+        "on": false,
+        "url": ""
+      }
     },
     {
       "id": "atlascoproprietes",
       "title": "Atlas des copropriétés en difficulté",
-      "kicker": "Mémoire — Grigny 2 et huit autres grandes copropriétés",
+      "kicker": "",
       "type": "Atlas cartographique (mémoire)",
       "lieu": "France",
       "annee": "2026",
@@ -75,22 +69,13 @@ window.CONTENT = {
         "atlascopro-2.jpg",
         "atlascopro-3.jpg"
       ],
-      "subtitle": [
-        {
-          "text": "Mémoire",
-          "url": ""
-        },
-        {
-          "text": "Grigny 2 et huit autres grandes copropriétés",
-          "url": ""
-        }
-      ]
+      "subtitle": []
     },
     {
       "id": "pellicule",
       "title": "Pellicule",
       "kicker": "",
-      "type": "",
+      "type": "Photos",
       "lieu": "(...)",
       "annee": "",
       "hidden": false,
@@ -124,9 +109,9 @@ window.CONTENT = {
       "id": "unaciudaddentrodelaciudad",
       "title": "Una ciudad dentro de la ciudad",
       "kicker": "",
-      "type": "",
-      "lieu": "",
-      "annee": "",
+      "type": "Logements collectifs (concours)",
+      "lieu": "Ibagué, (Colombie)",
+      "annee": "2025",
       "hidden": false,
       "text": [
         "Le projet adopte une approche intégrée qui articule des dimensions urbaines, sociales, environnementales et économiques dès la phase de conception. Il s’appuie sur des stratégies passives adaptées au climat local, une gestion durable de l’eau, l’utilisation de matériaux locaux et modulaires, ainsi qu’une forte participation communautaire.",
@@ -144,10 +129,6 @@ window.CONTENT = {
         {
           "label": "Équipe",
           "value": "Valentin Ciccarone\nLouise Méhois"
-        },
-        {
-          "label": "Année",
-          "value": "2025"
         }
       ],
       "link": {
@@ -186,16 +167,7 @@ window.CONTENT = {
         "chronique-1.jpg",
         "chronique-2.jpg"
       ],
-      "subtitle": [
-        {
-          "text": "",
-          "url": ""
-        },
-        {
-          "text": "",
-          "url": ""
-        }
-      ]
+      "subtitle": []
     },
     {
       "id": "awof",
@@ -280,9 +252,9 @@ window.CONTENT = {
       "id": "revitaliserlesilotsducentreville",
       "title": "Revitaliser les îlots du centre-ville",
       "kicker": "",
-      "type": "",
-      "lieu": "",
-      "annee": "",
+      "type": "Restructuration urbaine",
+      "lieu": "Saint-Étienne (42)",
+      "annee": "2024",
       "hidden": false,
       "text": [
         "Le projet de revitalisation du centre-ville de Saint-Étienne prépare la ville à affronter des phénomènes climatiques de plus en plus critiques. Îlots de chaleur, rez-de-chaussée vacants, logements insalubres : les enjeux sont multiples dans le centre-ville stéphanois.",
@@ -300,10 +272,6 @@ window.CONTENT = {
         {
           "label": "Équipe",
           "value": "Aristide Bouilhol\nFlorine Lyonnet\nChad Vanathatan"
-        },
-        {
-          "label": "Année",
-          "value": "2024"
         }
       ],
       "link": {
@@ -321,10 +289,10 @@ window.CONTENT = {
     {
       "id": "lelogementcommedispositifpolitique",
       "title": "Le logement comme dispositif politique",
-      "kicker": "Rapport d'étude",
-      "type": "",
+      "kicker": "",
+      "type": "Rapport d'étude",
       "lieu": "",
-      "annee": "",
+      "annee": "2024",
       "hidden": false,
       "text": [
         "Inspiré du magazine « Le 1 », ce rapport d’étude est le fruit de trois années d’observation et de questionnement sur les politiques du logement en France et le rôle des architectes face à cette crise. Avec 4,1 millions de personnes mal logées en 2023 d’après la Fondation pour le Logement des Défavorisés, les mesures étatiques ; loi SRU, loi ELAN, plan « Logement d’abord » restent insuffisantes. L’architecture se heurte à des contraintes normatives qui freinent l’innovation et la réponse aux besoins existants.",
@@ -340,20 +308,15 @@ window.CONTENT = {
         "logement-1.jpg",
         "logement-2.jpg"
       ],
-      "subtitle": [
-        {
-          "text": "Rapport d'étude",
-          "url": ""
-        }
-      ]
+      "subtitle": []
     },
     {
       "id": "maisonducretderoch",
       "title": "Maison du Crêt-de-Roch",
       "kicker": "",
-      "type": "",
-      "lieu": "",
-      "annee": "",
+      "type": "Maison de quartier",
+      "lieu": "Saint-Étienne (42)",
+      "annee": "2023",
       "hidden": false,
       "text": [
         "Implantée au sommet de la montée du Crêt-de-Roch, cette maison de quartier s’intègre dans le tissu urbain et offre aux habitants un véritable lieu de vie. Composé d’un espace administratif, événementiel, d’ateliers et d’un périscolaire, le projet est volontairement divisé en deux bâtiments distincts. Il regroupe d’une part les activités événementielles et sportives ouvertes sur la rue et connectées au city-stade, et de l’autre le pôle périscolaire regroupant différents ateliers ouverts sur un jardin réservé aux enfants au sud de la parcelle.",
@@ -367,10 +330,6 @@ window.CONTENT = {
         {
           "label": "Type",
           "value": "Maison de quartier"
-        },
-        {
-          "label": "Année ",
-          "value": "2023"
         }
       ],
       "link": {
@@ -388,9 +347,9 @@ window.CONTENT = {
       "id": "habiterlecretderoch",
       "title": "Habiter le Crêt-de-Roch",
       "kicker": "",
-      "type": "",
-      "lieu": "",
-      "annee": "",
+      "type": "Tiers lieu",
+      "lieu": "Saint-Étienne (42)",
+      "annee": "2023",
       "hidden": false,
       "text": [
         "Le projet propose une maison de ville partagée pour revitaliser le quartier. En rez-de-chaussée, des espaces de coworking, une bibliothèque, des bureaux indépendants et un local vélo sont prévus. Le rez-de-jardin accueille des espaces communs, buanderie, cuisine, avec une vue sur le hall. Une terrasse extérieure permet un lien direct avec la montée d'escalier attenante. Les deux derniers niveaux abritent 6 logements modulaires."
@@ -419,9 +378,9 @@ window.CONTENT = {
       "id": "enluttes",
       "title": "En lutte(s)",
       "kicker": "",
-      "type": "",
-      "lieu": "",
-      "annee": "",
+      "type": "Photos",
+      "lieu": "Saint-Étienne (42)",
+      "annee": "2023",
       "hidden": false,
       "text": [
         "Le 6 avril 2023, lors d'une grève nationale, des milliers de personnes ont défilé pour protester contre la réforme des retraites en France, une mesure controversée visant à repousser l'âge de départ à la retraite et à allonger la durée de cotisation.",
@@ -445,9 +404,9 @@ window.CONTENT = {
       "id": "habiterletalweg",
       "title": "Habiter le talweg",
       "kicker": "",
-      "type": "",
-      "lieu": "",
-      "annee": "",
+      "type": "Logements collectifs",
+      "lieu": "Villars (42)",
+      "annee": "2023",
       "hidden": false,
       "text": [
         "Situé à Villars, au nord-ouest de Saint-Étienne, le projet réorganise le front bâti en lanières avec une place au sud pour l'artisanat et le marché. Il inclut des logements avec jardins partagés et favorise la récupération des eaux de pluie. Les bâtiments surélevés et entourés de noues offrent des espaces communs au rez-de-chaussée. Les communs sont orientés sud pour maximiser l'apport de lumière naturelle, tandis que les chambres, orientées au nord, bénéficient d'une lumière douce et d'une vue sur le parc."
@@ -464,10 +423,6 @@ window.CONTENT = {
         {
           "label": "Équipe",
           "value": "Cathy Vidal"
-        },
-        {
-          "label": "Année ",
-          "value": "2023"
         }
       ],
       "link": {
@@ -487,9 +442,9 @@ window.CONTENT = {
       "id": "chaiviticole",
       "title": "Chai viticole",
       "kicker": "",
-      "type": "",
-      "lieu": "",
-      "annee": "",
+      "type": "Chai & salle communale",
+      "lieu": "Chilhac (43)",
+      "annee": "2023",
       "hidden": false,
       "text": [
         "Ce projet vise à offrir à la commune de Chilhac, située en Haute-Loire, un lieu venant redynamiser le village. Située au coeur d'une parcelle très boisée, le parti-pris était de conserver le parc à l'arrière de la parcelle sans minéraliser le sol.",
@@ -503,10 +458,6 @@ window.CONTENT = {
         {
           "label": "Type",
           "value": "Chai viticole, salle des fêtes"
-        },
-        {
-          "label": "Année ",
-          "value": "2023"
         }
       ],
       "link": {
@@ -598,7 +549,8 @@ window.CONTENT = {
         "saintemarie-4.jpg",
         "saintemarie-5.jpg",
         "saintemarie-6.jpg"
-      ]
+      ],
+      "subtitle": []
     },
     {
       "id": "reportagequinton",
@@ -622,7 +574,8 @@ window.CONTENT = {
         "quinton-5.jpg",
         "quinton-6.jpg",
         "quinton-7.jpg"
-      ]
+      ],
+      "subtitle": []
     },
     {
       "id": "stageaha",
@@ -643,7 +596,8 @@ window.CONTENT = {
         "stage-aha.jpg",
         "stage-1.jpg",
         "stage-2.jpg"
-      ]
+      ],
+      "subtitle": []
     }
   ],
   "atlas": [
@@ -831,7 +785,11 @@ window.CONTENT = {
         ]
       }
     ],
-    "photo": "portrait.jpg"
+    "photo": "portrait.jpg",
+    "heart": {
+      "on": true,
+      "url": "https://youtu.be/OMOGaugKpzs\nhttps://youtu.be/VOgFZfRVaww"
+    }
   },
   "links": [
     {
