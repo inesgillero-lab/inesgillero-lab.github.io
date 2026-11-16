@@ -303,10 +303,10 @@ window.CONTENT = {
       },
       "images": [
         "image15.jpg",
-        "logement-1.jpg",
         "logement-2.jpg"
       ],
-      "subtitle": []
+      "subtitle": [],
+      "heart": {}
     },
     {
       "id": "maisonducretderoch",
