@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://inesgillerodriguez-lab.github.io/sitemap.xml

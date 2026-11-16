@@ -1,3 +1,4 @@
+/* Contenu du site — généré par le back office (admin). */
 window.CONTENT = {
   "projects": [
     {
@@ -809,7 +810,8 @@ window.CONTENT = {
   ],
   "site": {
     "name": "ines gille rodriguez",
-    "favicon": "icone-rond.png"
+    "favicon": "icone-rond.png",
+    "googleVerification": "<meta name=\"google-site-verification\" content=\"xPVmpHiZ7qE1N5AFUV9gr-n8o07H15E-x0XlY34pwuM\" />"
   },
   "texts": {},
   "style": {
