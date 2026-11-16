@@ -70,7 +70,8 @@ window.CONTENT = {
         "atlascopro-2.jpg",
         "atlascopro-3.jpg"
       ],
-      "subtitle": []
+      "subtitle": [],
+      "heart": {}
     },
     {
       "id": "pellicule",
@@ -139,7 +140,8 @@ window.CONTENT = {
         "ciudad-3.jpg",
         "ciudad-4.jpg"
       ],
-      "subtitle": []
+      "subtitle": [],
+      "heart": {}
     },
     {
       "id": "chroniquedunelutte",
@@ -163,9 +165,11 @@ window.CONTENT = {
       },
       "images": [
         "chronique-1.jpg",
-        "chronique-2.jpg"
+        "chronique-2.jpg",
+        "image23.jpg"
       ],
-      "subtitle": []
+      "subtitle": [],
+      "heart": {}
     },
     {
       "id": "awof",
