@@ -1,4 +1,3 @@
-/* Contenu du site — généré par le back office (admin). */
 window.CONTENT = {
   "projects": [
     {
@@ -102,7 +101,8 @@ window.CONTENT = {
         "pellicule-12.jpg"
       ],
       "subtitle": [],
-      "heart": {}
+      "heart": {},
+      "ficheAuto": false
     },
     {
       "id": "unaciudaddentrodelaciudad",

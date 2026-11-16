@@ -396,9 +396,10 @@ function renderProject(id) {
   // fiche technique : celle du projet, sinon construite depuis type / lieu / année
   const has = k => p.details.some(d => d.label === k);
   const details = p.details.map(d => [d.label, d.value]);
-  if (p.lieu && p.lieu !== "(...)" && !has("Lieu") && !has("Évènement")) details.unshift(["Lieu", p.lieu]);
-  if (p.type && !has("Type")) details.splice(details.findIndex(([d]) => d === "Lieu") + 1, 0, ["Type", p.type]);
-  if (p.annee && !has("Date") && !has("Année")) details.push(["Année", p.annee]);
+  const auto = p.ficheAuto !== false;   // back office : « compléter la fiche avec Lieu, Type, Année »
+  if (auto && p.lieu && p.lieu !== "(...)" && !has("Lieu") && !has("Évènement")) details.unshift(["Lieu", p.lieu]);
+  if (auto && p.type && !has("Type")) details.splice(details.findIndex(([d]) => d === "Lieu") + 1, 0, ["Type", p.type]);
+  if (auto && p.annee && !has("Date") && !has("Année")) details.push(["Année", p.annee]);
 
   const cols = txt("div", "", "cols");
   const t = txt("div", "", "text");
