@@ -1,3 +1,4 @@
+/* Contenu du site — généré par le back office (admin). */
 window.CONTENT = {
   "projects": [
     {
@@ -87,23 +88,20 @@ window.CONTENT = {
       },
       "images": [
         "pellicule-1.jpg",
-        "pellicule-2.jpg",
         "pellicule-3.jpg",
         "pellicule-4.jpg",
+        "pellicule-9.jpg",
         "pellicule-5.jpg",
         "image18.jpg",
         "image51.jpg",
         "pellicule-6.jpg",
+        "pellicule-11.jpg",
         "pellicule-7.jpg",
         "pellicule-8.jpg",
-        "pellicule-9.jpg",
-        "pellicule-10.jpg",
-        "pellicule-11.jpg",
-        "pellicule-12.jpg",
-        "pellicule-13.jpg",
-        "pellicule-14.jpg"
+        "pellicule-12.jpg"
       ],
-      "subtitle": []
+      "subtitle": [],
+      "heart": {}
     },
     {
       "id": "unaciudaddentrodelaciudad",

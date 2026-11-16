@@ -317,13 +317,18 @@ C.projects.filter(p => !p.hidden).forEach(p => {
 
 /* cœur « <3 » : lien facultatif (musique…) */
 function heart(h) {
-  // un ou plusieurs liens (un par ligne) : à chaque clic, l'un d'eux au hasard
+  // un ou plusieurs liens (un par ligne) : chaque clic ouvre le suivant, chacun son tour
   const urls = (h.url || "").split(/\s+/).filter(u => /^(https?:|mailto:)/i.test(u));
   const e = txt(urls.length ? "a" : "span", "<3", "heart");
   if (urls.length) {
-    const pickUrl = () => { e.href = urls[Math.floor(Math.random() * urls.length)]; };
-    pickUrl(); e.target = "_blank"; e.rel = "noopener";
-    e.addEventListener("click", () => setTimeout(pickUrl, 0));   // le prochain clic pourra tomber sur une autre musique
+    let n = 0;
+    try { n = +localStorage.getItem("coeur") || 0; } catch (_) {}   // reprend là où le visiteur s'était arrêté
+    const show = () => { e.href = urls[n % urls.length]; };
+    show(); e.target = "_blank"; e.rel = "noopener";
+    e.addEventListener("click", () => setTimeout(() => {
+      n++; try { localStorage.setItem("coeur", n); } catch (_) {}
+      show();
+    }, 0));
   }
   e.setAttribute("aria-label", "cœur");
   return e;
